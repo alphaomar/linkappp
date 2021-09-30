@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLinkTable extends Migration
+class CreateVersionTablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateLinkTable extends Migration
      */
     public function up()
     {
-        Schema::create('link', function (Blueprint $table) {
-            $table->increments('link_id');
-            $table->string('link_name');
-            $table->string('link_description');
+        Schema::create('version_tables', function (Blueprint $table) {
+            $table->bigInteger('version_id');
+            $table->string('version_name');
+            $table->string('version_discriptions');
             $table->timestamps();
+
+            
         });
     }
 
@@ -28,6 +30,6 @@ class CreateLinkTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('link');
+        Schema::dropIfExists('version_tables');
     }
 }
